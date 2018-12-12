@@ -1,0 +1,25 @@
+.container {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media only screen and (max-width: 1140px) {
+    padding: 0 15px;
+  }
+}
+
+.Product {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.5rem;
+
+  .ProductImage {
+    flex-basis: 40%;
+  }
+  .ProductDetail {
+    flex-basis: 55%;
+  }
+  @media only screen and (max-width: 640px) {
+    flex-direction: column;
+  }
+}

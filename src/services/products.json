@@ -1,0 +1,8 @@
+{
+  "productCode": 1,
+  "productName": "Ave Shirt",
+  "productImage": "/assets/images/product-mens.jpg",
+  "productPrice": 9.99,
+  "productDescription": "Material: Wool and Polyester blend,Lightly Insulated liner,Slim fit,cuts closer through the chest and waist,Removable hood and front layer,Two front pockets and two inside chest pockets,Single Slit at the back,Our model wears M and is 6'1\" tall",
+  "sizes": ["xs", "s", "m", "l", "xl"]
+}
