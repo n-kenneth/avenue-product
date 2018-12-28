@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 class ProductForm extends Component {
   state = {
-    selectedSize: this.props.product.sizes[0]
+    errorMessage: null
   };
 
   handleSize = size => {
@@ -11,18 +11,28 @@ class ProductForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { product, onOrder } = this.props;
-    const newproduct = {
-      ...product,
-      sizes: this.state.selectedSize
-    };
-    onOrder(newproduct);
+    const selectedSize = event.currentTarget.productSize.value;
+    if (selectedSize) {
+      const { product, onOrder } = this.props;
+      const newproduct = { ...product, sizes: selectedSize };
+      onOrder(newproduct);
+      this.setState({ errorMessage: null });
+    } else {
+      this.setState({
+        errorMessage: (
+          <p className="error-message">
+            select a size<sup>*</sup>
+          </p>
+        )
+      });
+    }
   };
 
   render() {
     const { sizes } = this.props.product;
     return (
       <form onSubmit={this.handleSubmit}>
+        {this.state.errorMessage}
         <ul>
           {sizes.map((size, i) => {
             return (
@@ -33,14 +43,13 @@ class ProductForm extends Component {
                   value={size}
                   id={size}
                   onChange={() => this.handleSize(size)}
-                  checked={this.state.selectedSize === size ? "checked" : ""}
                 />
                 <label htmlFor={size}>{size}</label>
               </li>
             );
           })}
         </ul>
-        <button>
+        <button onClick={this.props.onOrderTotal}>
           <i className="fa fa-shopping-cart" /> Add to cart
         </button>
       </form>

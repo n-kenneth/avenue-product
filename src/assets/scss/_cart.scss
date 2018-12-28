@@ -1,5 +1,6 @@
 .Cart {
   position: relative;
+
   span {
     position: absolute;
     top: -7px;
@@ -15,6 +16,7 @@
     font-weight: bold;
     cursor: pointer;
   }
+
   i {
     font-size: 23px;
     cursor: pointer;
@@ -44,12 +46,15 @@
   &-inner {
     max-height: 400px;
     overflow-y: auto;
+
     &::-webkit-scrollbar {
       width: 5px;
     }
+
     &::-webkit-scrollbar-track {
       border-radius: 10px;
     }
+
     &::-webkit-scrollbar-thumb {
       border-radius: 10px;
       background: #2bcbba;
@@ -66,12 +71,47 @@
       width: 75px;
     }
   }
+
   &-details {
     h4 {
       margin-bottom: 10px;
     }
+
     p:not(:last-child) {
       margin-bottom: 15px;
     }
+  }
+
+  &-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    span {
+      color: #333;
+      position: static;
+      background: none;
+      cursor: auto;
+      font-size: 15px;
+      font-weight: bold;
+    }
+
+    button {
+      border: none;
+      background: #2bcbba;
+      cursor: pointer;
+
+      i {
+        vertical-align: middle;
+        color: #fff;
+        font-size: 5px;
+      }
+    }
+  }
+
+  &-total {
+    text-align: right;
+    font-weight: bold;
+    font-size: 18px;
   }
 }
